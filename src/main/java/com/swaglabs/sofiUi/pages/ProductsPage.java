@@ -17,9 +17,6 @@ public class ProductsPage extends BasePage {
     @FindBy(className = "product_label")
     private WebElement productLabel;
 
-    @FindBy(xpath = "//div[contains(text(),'Sauce Labs Onesie')]/ancestor::div[@class='inventory_item']//button")
-    private WebElement product;
-
     @FindBy(xpath = "//div[@id='shopping_cart_container']/a")
     private WebElement cart;
 
@@ -30,6 +27,7 @@ public class ProductsPage extends BasePage {
         this.driver = driver;
         PageFactory.initElements(driver, this);
         //get label how
+        waitForElement(productLabel);
     }
 
     public WebElement productLabel() {
